@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import * as S from './style';
 import WhiteLogo from '../../Assets/logo.png';
 import UserIcon from '../../Assets/account-circle.png';
@@ -15,14 +15,12 @@ const defaultMenuConfig = [
 
 const Header = () => {
   return (
-      <Fragment>
-        <S.StyledHeader>
-          <S.StyledLogo src={WhiteLogo} />
-          <Menu menuItems={defaultMenuConfig}></Menu>
-          <S.StyledIcon src={UserIcon}/>
-      </S.StyledHeader>
-      </Fragment>
+    <S.StyledHeader>
+      <S.StyledLogo src={WhiteLogo} />
+      <Menu menuItems={defaultMenuConfig}></Menu>
+      <S.StyledIcon src={UserIcon} />
+    </S.StyledHeader>
   )
-}
+};
 
 export default Header;
