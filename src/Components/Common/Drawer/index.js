@@ -4,8 +4,6 @@ import React from 'react';
 
 const Drawer = ({children}) => {
 
-    console.log(children);
-
     return ReactDOM.createPortal(
         <S.StyledPageWarrper>
             <S.StyledDrawer>

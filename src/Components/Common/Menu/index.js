@@ -16,7 +16,7 @@ const Menu = ({ menuItems, humburgerResolution = 880 }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const breakPoint = useMedia(breakPoints);
 
-
+    // Active link
     const handleActive = (item) => {
         const newActive = menuItems.map((menuItem) => {
             if (menuItem.id !== item.id) {
@@ -36,7 +36,11 @@ const Menu = ({ menuItems, humburgerResolution = 880 }) => {
                     <S.Hamburger src={Burger} onClick={() => setIsDrawerOpen(!isDrawerOpen)}/>
                     {isDrawerOpen && (
                         <Drawer>
-                            <DrawerMenu onClose={() => setIsDrawerOpen(false)}/>
+                            <DrawerMenu
+                                onClose={() => setIsDrawerOpen(false)}
+                                activesMenuItems={activesMenuItems}
+                                handleActive={handleActive}
+                            />
                         </Drawer>
                     )}
                 </Fragment>
