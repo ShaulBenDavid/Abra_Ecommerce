@@ -5,11 +5,11 @@ import UserIcon from '../../Assets/account-circle.png';
 import Menu from '../Common/Menu';
 
 const defaultMenuConfig = [
-  {id: 1,name: "Best Sellers", active: true},
-  {id: 2,name: "Clothing", active: false},
-  {id: 3,name: "Home", active: false},
-  {id: 4,name: "Office", active: false},
-  {id: 5,name: "Sports", active: false},
+  {id: 10,name: "Best Sellers", active: true},
+  {id: 20,name: "Clothing", active: false},
+  {id: 30,name: "Home", active: false},
+  {id: 40,name: "Office", active: false},
+  {id: 50,name: "Sports", active: false},
 ];
 
 
@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <S.StyledHeader>
       <S.StyledLogo src={WhiteLogo} />
-      <Menu menuItems={defaultMenuConfig}></Menu>
+      <Menu menuItems={defaultMenuConfig}/>
       <S.StyledIcon src={UserIcon} />
     </S.StyledHeader>
   )

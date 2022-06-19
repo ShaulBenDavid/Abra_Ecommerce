@@ -1,10 +1,17 @@
 import * as S from './style';
-import * 
+import * as ReactDOM from 'react-dom';
+import React from 'react';
 
-const Drawer = () => {
-    return (
-        <S.StyledDrawer>
-        </S.StyledDrawer>
+const Drawer = ({children}) => {
+
+    console.log(children);
+
+    return ReactDOM.createPortal(
+        <S.StyledPageWarrper>
+            <S.StyledDrawer>
+                {children}
+            </S.StyledDrawer>
+        </S.StyledPageWarrper>,document.body
     );
 }
 
