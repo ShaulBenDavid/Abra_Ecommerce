@@ -4,6 +4,12 @@ import * as S from './style';
 import closeIcon from '../../../Assets/close.png';
 
 const DrawerMenu = ({ onClose, activesMenuItems, handleActive }) => {
+
+  const handleClick = (item) => {
+    handleActive(item);
+    onClose();
+  };
+
   return (
     <S.DrawerContainer>
       
@@ -14,7 +20,7 @@ const DrawerMenu = ({ onClose, activesMenuItems, handleActive }) => {
 
       <S.StyledDrawerNav>
         {activesMenuItems.map((item) => {
-          return <S.DrawerMenuItem key={item.id} active={item.active} onClick={() => handleActive(item)} href="#" >{item.name}</S.DrawerMenuItem>;
+          return <S.DrawerMenuItem key={item.id} active={item.active} onClick={() => handleClick(item)} href="#" >{item.name}</S.DrawerMenuItem>;
         })}
       </S.StyledDrawerNav>
 

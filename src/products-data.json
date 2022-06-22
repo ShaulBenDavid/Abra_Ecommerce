@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Black T-shirt",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 89
+    },
+    {
+        "id": 2,
+        "name": "White Mouse Pad",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 57
+    },
+    {
+        "id": 3,
+        "name": "Black Canvas bag",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 42
+    },
+    {
+        "id": 4,
+        "name": "White Hat",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 64
+    },
+    {
+        "id": 5,
+        "name": "Black Bottle",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 109
+    },
+    {
+        "id": 6,
+        "name": "White Mug",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 24
+    },
+    {
+        "id": 7,
+        "name": "Black Notebook",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 23
+    },
+    {
+        "id": 8,
+        "name": "White Bottle",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 109
+    },
+    {
+        "id": 9,
+        "name": "Black Mouse Pad",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 57
+    },
+    {
+        "id": 10,
+        "name": "2 Pens",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 22
+    },
+    {
+        "id": 11,
+        "name": "Black Canvas bag",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 42
+    },
+    {
+        "id": 12,
+        "name": "White Hat",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 64
+    },
+    {
+        "id": 13,
+        "name": "Black Bottle",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 109
+    },
+    {
+        "id": 14,
+        "name": "White Mouse Pad",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 57
+    },
+    {
+        "id": 15,
+        "name": "Black T-shirt",
+        "imageUrl": "https://elad-test-1.s3.amazonaws.com/note.png",
+        "price": 89
+    }
+]
