@@ -1,5 +1,5 @@
 import React from 'react';
-import BestSellers from './Components/BestSellers/BestSellers';
+import BestSellers from './Pages/BestSellers/BestSellers';
 import Header from './Components/Header';
 
 import PRODUCTS_DATA from './products-data.json';

@@ -37,10 +37,10 @@ export const DrawerMenuItem = styled.a`
     font-weight: 600;
     color: #1a223e;
     position: relative;
-    padding-left: 4px;
     cursor: pointer;
-
+    
     ${props => props.active === true && css`
+        padding-left: 4px;
         font-weight: 700;
 
         &::before {
@@ -56,14 +56,23 @@ export const DrawerMenuItem = styled.a`
     `}
 `;
 
+export const LogOutContainer = styled.div`
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 42px;
+
+    display: flex;
+    justify-content: center;
+`
+
+
+
 export const LogOutButton = styled.a`
   font-family: Assistant;
   font-size: 1rem;
   font-weight: 500;
   color: #808285;
   cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 42px;
+  align-self: center;
 `;
 

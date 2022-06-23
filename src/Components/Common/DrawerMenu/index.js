@@ -1,7 +1,8 @@
 import React from 'react';
 import BlueLogo from '../../../Assets/logo2.png';
 import * as S from './style';
-import closeIcon from '../../../Assets/close.png';
+import closeIcon from '../../../Assets/closeB.svg';
+import logoutIcon from '../../../Assets/logout.svg';
 
 const DrawerMenu = ({ onClose, activesMenuItems, handleActive }) => {
 
@@ -24,7 +25,10 @@ const DrawerMenu = ({ onClose, activesMenuItems, handleActive }) => {
         })}
       </S.StyledDrawerNav>
 
-      <S.LogOutButton>Log out</S.LogOutButton>
+      <S.LogOutContainer>
+        <img src={logoutIcon} alt="logout icon"/>
+        <S.LogOutButton>Log out</S.LogOutButton>
+      </S.LogOutContainer>
 
     </S.DrawerContainer>
   )
