@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { deviceSize } from '../../constants';
 
 export const StyledHeader = styled.header`
     background-color: #1a223e;
@@ -6,16 +7,25 @@ export const StyledHeader = styled.header`
     padding: 21px 0px;
     padding-left: 64px;
     align-items: flex-end;
+    width: 100%;
 
-    @media (max-width: 880px) {
+    @media (max-width: ${deviceSize.mobile}) {
         padding-left: 18px;
     }
 `;
 
 
 export const StyledLogo = styled.img`
-    padding-right: 98px;
+    margin-right: 98px;
     align-self: center;
+    width: 178px;
+    height: 30px;
+
+    @media (max-width: ${deviceSize.mobile}) {
+        width: 142.4px;
+        height: 24px;
+        margin: 0;
+    }
 `;
 
 export const StyledIcon = styled.img`
