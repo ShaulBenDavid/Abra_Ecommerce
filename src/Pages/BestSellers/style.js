@@ -13,6 +13,7 @@ export const BestSellersWrapper = styled.div`
         font-size: 1.5rem;
      }
      padding: 36px 18px;
+     height: calc(100vh - 64px - 393px);
     }
 
 `;

@@ -4,12 +4,11 @@ import * as S from './style';
 
 
 
-const BestSellers = ({ PRODUCTS_DATA }) => {
+const BestSellers = ({ productsData }) => {
     return (
         <S.BestSellersWrapper>
             <h1>Best sellers</h1>
-
-            <ProductList PRODUCTS_DATA={PRODUCTS_DATA} />
+            <ProductList productsData={productsData} />
         </S.BestSellersWrapper>
     );
 }

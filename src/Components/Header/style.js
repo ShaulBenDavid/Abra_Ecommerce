@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
     width: 100%;
 
     @media (max-width: ${deviceSize.mobile}) {
+        padding: 16px 0px;
         padding-left: 18px;
     }
 `;
@@ -24,7 +25,7 @@ export const StyledLogo = styled.img`
     @media (max-width: ${deviceSize.mobile}) {
         width: 142.4px;
         height: 24px;
-        margin: 0;
+        margin: 0 auto;
     }
 `;
 
@@ -32,4 +33,11 @@ export const StyledIcon = styled.img`
     align-self: center;
     margin-left: auto;
     padding-right: 24px;
+
+    @media (max-width: ${deviceSize.mobile}) {
+        margin-right: 18px;
+        padding: 0;
+        height: 32px;
+        width: 32px;
+    }
 `;

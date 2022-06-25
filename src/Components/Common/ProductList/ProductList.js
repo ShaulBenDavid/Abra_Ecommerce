@@ -2,11 +2,11 @@ import React from 'react';
 import * as S from './style';
 import ProductCard from '../ProductCard/ProductCard';
 
-const ProductList = ({ PRODUCTS_DATA }) => {
+const ProductList = ({ productsData }) => {
 
     return (
         <S.ProductListContainer>
-            {PRODUCTS_DATA.map((product) => (
+            {productsData.map((product) => (
                 <ProductCard product={product} key={product.id} />
             ))}
         </S.ProductListContainer>
