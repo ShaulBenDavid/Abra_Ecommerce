@@ -19,8 +19,6 @@ export const StyledCloseButton = styled.img`
     margin-left: auto;
     padding-right: 16px;
     cursor: pointer;
-    height: 32px;
-    width: 32px;
 `;
 
 export const StyledDrawerNav = styled.nav`
