@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductList from '../../Components/Common/ProductList/ProductList';
+import ProductList from '../../Components/Items/ProductList/ProductList';
 import * as S from './style';
 
 

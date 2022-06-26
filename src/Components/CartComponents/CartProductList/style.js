@@ -21,6 +21,6 @@ export const CartProductContainer = styled.div`
     @media (max-width: ${deviceSize.mobile}) {
         flex-direction: row;
         gap: 0 18px;
-        overflow-y: auto;
+        overflow-x: auto;
     }
 `;

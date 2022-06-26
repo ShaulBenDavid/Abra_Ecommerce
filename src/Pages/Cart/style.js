@@ -32,42 +32,6 @@ export const CartTitle = styled.h2`
     
 `;
 
-export const EmptyCartContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 227px;
-
-    @media (max-width: ${deviceSize.mobile}) {
-        margin-top: 46px;
-    }
-`;
-
-
-export const EmptyCartImg = styled.img`
-    width: 239px;
-    height: 200px;
-    padding-bottom: 24px;
-
-    @media (max-width: ${deviceSize.mobile}) {
-        width: 168px;
-        height: 140px;
-        padding-bottom: 16px;
-    }
-`;
-
-
-export const EmptyCartText = styled.span`
-    font-family: Assistant;
-    font-size: 1rem;
-    text-align: center;
-    color: #000;
-
-    @media (max-width: ${deviceSize.mobile}) {
-        font-size: 0.875rem;
-    }
-`;
-
 export const CartButton = styled(Button)`
     width: calc(316px - 48px);
     position: absolute;

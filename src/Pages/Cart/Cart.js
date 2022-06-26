@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
-import EmptyCart from '../../Assets/empty-cart.svg';
-import CartProductList from '../../Components/Common/CartProductList';
+import EmptyCart from '../../Components/CartComponents/EmptyCart';
+import CartProductList from '../../Components/CartComponents/CartProductList/index';
 import * as S from './style';
 
 
@@ -83,14 +83,10 @@ const Cart = () => {
                 </Fragment>
                 
                 :
-                
-                <S.EmptyCartContainer>
-                    <S.EmptyCartImg src={EmptyCart} alt='empty cart' />
-                    <S.EmptyCartText>Your cart is empty</S.EmptyCartText>
-                </S.EmptyCartContainer>
+                <EmptyCart />
             }
             
-            <S.CartButton disabled>Checkout</S.CartButton>
+            <S.CartButton type="inverted" disabled={cartProducts.length? false : true}>Checkout</S.CartButton>
 
         </S.StyledCartWrapper>
     );

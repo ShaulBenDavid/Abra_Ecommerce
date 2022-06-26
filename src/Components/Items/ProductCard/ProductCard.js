@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { StyledButton } from '../Button/style';
+import Button from '../../Common/Button/index';
 import * as S from './style';
 
 const ProductCard = ({ product }) => {
@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
             <img src={image} alt={name} />
             <S.ProductCardName>{name}</S.ProductCardName>
             <S.ProductCardPrice>{price} ILS</S.ProductCardPrice>
-            <StyledButton>Add to bag</StyledButton>
+            <Button>Add to bag</Button>
         </S.ProductCardContainer>
     );
 }

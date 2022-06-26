@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { deviceSize } from '../../../constants';
 
 export const StyledButton = styled.button`
@@ -22,6 +22,17 @@ export const StyledButton = styled.button`
       color: #fff;
     }
     
+
+    ${(props) => props.type === 'inverted' && css`
+        background-color: #000;
+        color: #fff;
+    
+      &:hover {
+        background-color: #fff;
+        color: #000;
+      }
+    `};
+
     &:disabled, &[disabled] {
         background-color: #808080;
         color: #fff;
