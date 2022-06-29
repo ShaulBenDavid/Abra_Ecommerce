@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const DrawerContainer = styled.div`
     padding-left: 18px;
@@ -25,33 +25,6 @@ export const StyledDrawerNav = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 26px;
-`;
-
-export const DrawerMenuItem = styled.a`
-    flex-grow: 0;
-    text-decoration: none;
-    font-family: Assistant;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a223e;
-    position: relative;
-    cursor: pointer;
-    
-    ${props => props.active === true && css`
-        padding-left: 4px;
-        font-weight: 700;
-
-        &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 2px;
-            height: 24px;
-            background-color: #1a223e;
-        }
-    `}
 `;
 
 export const LogOutContainer = styled.div`

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { deviceSize } from "../../constants";
 
-export const BestSellersWrapper = styled.div`
+export const ContentPageWrapper = styled.div`
     padding: 64px 24px;
     overflow: auto;
     width: 100%;
     height: calc(100vh - 78px);
+
 
     @media (max-width: ${deviceSize.mobile}) {
      h1 {

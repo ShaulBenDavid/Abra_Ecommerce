@@ -5,11 +5,11 @@ import UserIcon from '../../Assets/account-circle.png';
 import Menu from '../Common/Menu';
 
 const defaultMenuConfig = [
-  {id: 10,name: "Best Sellers", active: true},
-  {id: 20,name: "Clothing", active: false},
-  {id: 30,name: "Home", active: false},
-  {id: 40,name: "Office", active: false},
-  {id: 50,name: "Sports", active: false},
+  {id: 10,name: "Best Sellers", path: "/"},
+  {id: 20,name: "Clothing", path: "/clothing"},
+  {id: 30,name: "Home", path: "/home"},
+  {id: 40,name: "Office", path: "/office"},
+  {id: 50,name: "Sports", path: "/sports"},
 ];
 
 

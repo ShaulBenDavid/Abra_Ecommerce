@@ -1,32 +1,30 @@
 import React, { Fragment, useState } from 'react';
-import * as S from './style';
-import Burger from '../../../Assets/menu.png';
 import { useMedia } from '../../../Hooks/useMedia';
+import { useNavigate } from 'react-router-dom';
+    
+import * as S from './style';
+
+import Burger from '../../../Assets/menu.png';
 import Drawer from '../Drawer/index';
 import DrawerMenu from '../DrawerMenu/index';
+import MenuLink from '../MenuLink';
 
 const Menu = ({ menuItems, humburgerResolution = 880 }) => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(() => false);
 
     const breakPoints = [
         {min: 0, max: humburgerResolution, name: "mobile"},
         {min: humburgerResolution + 1, max: 5000, name: "desktop"}
     ];
 
-    const [activesMenuItems, setActivesMenuItems] = useState(() => menuItems);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const breakPoint = useMedia(breakPoints);
 
+
+    const navigate = useNavigate();
+
     // Active link
-    const handleActive = (item) => {
-        const newActive = menuItems.map((menuItem) => {
-            if (menuItem.id !== item.id) {
-                menuItem.active = false;
-                return menuItem;
-            }
-            menuItem.active = true;
-            return menuItem;
-        })
-        setActivesMenuItems(newActive);
+    const handleNavigate = (item) => {
+        navigate(item.path);
     }
 
     return (
@@ -37,17 +35,21 @@ const Menu = ({ menuItems, humburgerResolution = 880 }) => {
                     {isDrawerOpen && (
                         <Drawer>
                             <DrawerMenu
+                                menuItems={menuItems}
                                 onClose={() => setIsDrawerOpen(false)}
-                                activesMenuItems={activesMenuItems}
-                                handleActive={handleActive}
+                                handleNavigate={handleNavigate}
                             />
                         </Drawer>
                     )}
                 </Fragment>
                 :
-                activesMenuItems.map((item) => {
-                    return <S.MenuItem key={item.id} active={item.active} onClick={() => handleActive(item)} href="#" >{item.name}</S.MenuItem>;
-                })
+                menuItems.map((item) => 
+                    <MenuLink
+                        key={item.id}
+                        item={item}
+                        onClick={() => handleNavigate(item)}
+                    />
+                )
             }
         </S.MenuWrapper>
   )

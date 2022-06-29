@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { deviceSize } from './constants';
+import { deviceSize } from '../../constants';
 
 export const ContentWrapper = styled.div`
     display: flex;

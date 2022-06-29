@@ -1,13 +1,15 @@
 import React from 'react';
-import BlueLogo from '../../../Assets/logo2.png';
+
+import MenuLink from '../MenuLink';
 import * as S from './style';
+import BlueLogo from '../../../Assets/logo2.png';
 import closeIcon from '../../../Assets/closeB.svg';
 import logoutIcon from '../../../Assets/logout.svg';
 
-const DrawerMenu = ({ onClose, activesMenuItems, handleActive }) => {
+const DrawerMenu = ({ onClose, menuItems, handleNavigate }) => {
 
   const handleClick = (item) => {
-    handleActive(item);
+    handleNavigate(item);
     onClose();
   };
 
@@ -20,8 +22,13 @@ const DrawerMenu = ({ onClose, activesMenuItems, handleActive }) => {
       </S.StyledDrawerMenuWrapper>
 
       <S.StyledDrawerNav>
-        {activesMenuItems.map((item) => {
-          return <S.DrawerMenuItem key={item.id} active={item.active} onClick={() => handleClick(item)} href="#" >{item.name}</S.DrawerMenuItem>;
+        {menuItems.map((item) => {
+          return <MenuLink
+            key={item.id}
+            onClick={() => handleClick(item)}
+            item={item}
+            typeLink="drawer"
+          />;
         })}
       </S.StyledDrawerNav>
 
