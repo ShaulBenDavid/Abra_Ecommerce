@@ -1,9 +1,12 @@
 import React from 'react';
+
 import * as S from './style';
 import closeIcon from '../../../Assets/closeB.svg';
 
 const CartProduct = ({product}) => {
-    const { price, name, image, quantity } = product;
+
+    const { price, name, image, cartQuantity } = product;
+
 
 
     return (
@@ -18,7 +21,7 @@ const CartProduct = ({product}) => {
                 <S.QuantityContainerProductCart>
                     
                     <S.QuantityButtonProductCart>-</S.QuantityButtonProductCart>
-                    <S.QuantityProductCart>{quantity}</S.QuantityProductCart>
+                    <S.QuantityProductCart>{cartQuantity}</S.QuantityProductCart>
                     <S.QuantityButtonProductCart>+</S.QuantityButtonProductCart>
 
                 </S.QuantityContainerProductCart>

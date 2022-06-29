@@ -1,20 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
+
 import EmptyCart from '../../Components/CartComponents/EmptyCart';
 import CartProductList from '../../Components/CartComponents/CartProductList/index';
 import * as S from './style';
 
 
 const Cart = () => {
-
+    const { cartItems } = useContext(CartContext);
 
     return (
         <S.StyledCartWrapper>
             <S.CartTitle>My cart</S.CartTitle>
 
-            {cartProducts.length ?
+            {cartItems.length ?
                 <Fragment>
                     <S.ProductCartContent>Items are reserved for 60 minutes</S.ProductCartContent>
-                    <CartProductList cartProducts={cartProducts} />
+                    <CartProductList cartProducts={cartItems} />
                 
                     <S.ProductCartTotal>
                         <span>Subtotal:</span>
@@ -26,7 +28,7 @@ const Cart = () => {
                 <EmptyCart />
             }
             
-            <S.CartButton type="inverted" disabled={cartProducts.length? false : true}>Checkout</S.CartButton>
+            <S.CartButton type="inverted" disabled={cartItems.length? false : true}>Checkout</S.CartButton>
 
         </S.StyledCartWrapper>
     );
