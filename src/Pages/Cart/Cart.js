@@ -7,7 +7,7 @@ import * as S from './style';
 
 
 const Cart = () => {
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, cartTotal } = useContext(CartContext);
 
     return (
         <S.StyledCartWrapper>
@@ -20,7 +20,7 @@ const Cart = () => {
                 
                     <S.ProductCartTotal>
                         <span>Subtotal:</span>
-                        <span>176 ILS</span>
+                        <span>{cartTotal} ILS</span>
                     </S.ProductCartTotal>
                 </Fragment>
                 
