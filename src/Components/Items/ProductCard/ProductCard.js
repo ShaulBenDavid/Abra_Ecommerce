@@ -13,12 +13,17 @@ const ProductCard = ({ product }) => {
         addItemsToCart(product);
     }
 
+    console.log(product)
+
     return (
         <S.ProductCardContainer>
             <img src={image} alt={name} />
             <S.ProductCardName>{name}</S.ProductCardName>
             <S.ProductCardPrice>{price} ILS</S.ProductCardPrice>
-            <Button onClick={handleClick}>Add to bag</Button>
+            {product.quantity !== 0
+                ? <Button onClick={handleClick}>Add to bag</Button>
+                : <Button disabled >Out of stock</Button>
+            }   
         </S.ProductCardContainer>
     );
 }

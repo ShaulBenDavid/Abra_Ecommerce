@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 import ProductList from '../../Components/Items/ProductList/ProductList';
 import * as S from './style';
 
 
 
-const ContentPage = ({ productsData, pageName, pageCategorie }) => {
+const ContentPage = ({ pageName, pageCategorie }) => {
     const [filteredProducts, setSilteredProducts] = useState([]);
+
+    const { storeItems } = useContext(CartContext); 
     
     useEffect(() => {
-        const filtered = productsData.filter((product) => product.catagories.includes(pageCategorie));
+        const filtered = storeItems.filter((product) => product.catagories.includes(pageCategorie));
         
         setSilteredProducts(filtered)
 
-    }, [pageCategorie, productsData])
+    }, [pageCategorie, storeItems])
     
 
 

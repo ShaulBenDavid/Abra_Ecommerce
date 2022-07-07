@@ -1,31 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import PagesData from './Services/PagesData.json';
-import { getProductData } from './Services/API/Api';
 
 import PageWrapper from './Pages/PageWrapper';
 import Header from './Components/Header';
 
 function App() {
 
-  const [productsData, setProductsData] = useState(() => [])
-
-  useEffect(() => {
-    
-    const getData = async () => {
-      try {
-        const data = await getProductData();
-        setProductsData(data);
-  
-      } catch (e) {
-        console.log(e);
-      }
-    }
-
-    getData();
-  }, [])
-  
 
   return (
     <div className="App">
@@ -39,7 +21,6 @@ function App() {
               path={pathN}
               element={
                 <PageWrapper
-                  productsData={productsData}
                   pageName={pageName}
                   pageCategorie={pageCategorie}
                 />}

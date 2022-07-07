@@ -1,8 +1,13 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useMemo, useState } from "react";
+
+import { getProductData } from '../Services/API/Api';
 
 // Adding item to cart
-const addCartItems = (cartItems, itemToAdd) => {
+const addCartItems = (cartItems, products, itemToAdd) => {
     // To check if item all ready exist
+    const storeItem = products.find(
+        (product) => product.id === itemToAdd.id
+    );
     const itemExisting = cartItems.find(
         (cartItem) => cartItem.id === itemToAdd.id
     );
@@ -10,6 +15,9 @@ const addCartItems = (cartItems, itemToAdd) => {
 
     // If is exist to change quantity
     if (itemExisting) {
+        // Will not give you to add item that is out of stock
+        if (storeItem.quantity === itemExisting.cartQuantity) return cartItems;
+
         return cartItems.map((cartItem) =>
             cartItem.id === itemToAdd.id
                 ? { ...cartItem, cartQuantity: cartItem.cartQuantity + 1 }
@@ -55,25 +63,59 @@ const deleteCartItem = (cartItems, itemToDelete) => {
 
 export const CartContext = createContext({
     cartItems: [],
+    storeItems: [],
     addItemsToCart: () => {},
     removeItemsToCart: () => {},
-    deleteItemsToCart: () => { },
-    cartTotal: 0,
-
+    deleteItemsToCart: () => {},
+    checkoutCartItems: () => {},
 });
+
+
+
+
+// Provider ......
 
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(() => []);
-    const [cartTotal, setCartTotal] = useState(() => 0);
+    const [products, setProducts] = useState(() => []);
+
+    // Update products
+    const storeItems = useMemo(() => {
+        return products.map((item) => {
+            const newItem = { ...item };
+            const cartItem = cartItems.find((item) => item.id === newItem.id);
+
+            if (cartItem) {
+                newItem.quantity -= cartItem.cartQuantity;
+            }
+
+            return newItem;
+        });
+
+    }, [cartItems, products]);
+
+    // Get products
+    const getData = async () => {
+        try {
+            const data = await getProductData();
+            setProducts(data);
+    
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     useEffect(() => {
-        const cartTotalCalc = cartItems.reduce((total, currentPrice) => total + currentPrice.cartQuantity * currentPrice.price, 0);
-        setCartTotal(cartTotalCalc);
-    }, [cartItems])
+        getData();
+    }, [])
+    
+
+
+
 
     // Increase item quantity
     const addItemsToCart = (itemToAdd) => {
-        setCartItems(addCartItems(cartItems, itemToAdd))
+        setCartItems(addCartItems(cartItems, products, itemToAdd))
     };
 
     // Decrease item quantity
@@ -86,13 +128,30 @@ export const CartProvider = ({children}) => {
         setCartItems(deleteCartItem(cartItems, itemToDelete))
     };
 
+    // Checkout
+    const checkoutCartItems = () => {
+        const updateProducts = products.map((product) => {
+            const existingCartItem = cartItems.find((cartItem) => cartItem.id === product.id);
+            const newProduct = { ...product };
+
+            if (existingCartItem) {
+                newProduct.quantity -= existingCartItem.cartQuantity;
+            }
+            return newProduct;
+        })
+
+        setProducts(updateProducts);
+        setCartItems([]);
+    };
+
 
     const value = {
         cartItems,
-        cartTotal,
+        storeItems,
         addItemsToCart,
         removeItemsToCart,
         deleteItemsToCart,
+        checkoutCartItems,
     };
 
     return <CartContext.Provider value={value} >{children}</CartContext.Provider>
