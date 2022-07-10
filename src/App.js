@@ -1,17 +1,23 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import PagesData from './Services/PagesData.json';
+import PagesData from "./Services/PagesData.json";
 
-import PageWrapper from './Pages/PageWrapper';
-import Header from './Components/Header';
+import PageWrapper from "./Pages/PageWrapper";
+import Header from "./Components/Header";
+import { fetchStoreItems } from "./Redux/storeSlice";
 
 function App() {
+  const dispacth = useDispatch();
 
+  useEffect(() => {
+    dispacth(fetchStoreItems());
+  }, []);
 
   return (
     <div className="App">
-    <Header />
+      <Header />
       <Routes>
         {PagesData.map((page) => {
           const { pathN, pageName, pageCategorie, id } = page;
@@ -23,7 +29,8 @@ function App() {
                 <PageWrapper
                   pageName={pageName}
                   pageCategorie={pageCategorie}
-                />}
+                />
+              }
             />
           );
         })}

@@ -1,26 +1,27 @@
-import React, { Fragment, useContext, useMemo } from "react";
-import { CartContext } from "../../Context/CartContext";
+import React, { Fragment, useMemo } from "react";
 
 import EmptyCart from "../../Components/CartComponents/EmptyCart";
 import CartProductList from "../../Components/CartComponents/CartProductList/index";
 import * as S from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import { checkout } from '../../Redux/storeSlice';
 
 const Cart = () => {
-  const { cartItems, checkoutCartItems } = useContext(CartContext);
-
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.store.cart);
   // Cart total
   const cartTotal = useMemo(() => {
     return cartItems.reduce(
       (total, currentPrice) =>
-        total + currentPrice.cartQuantity * currentPrice.price,
+        total + currentPrice.quantity * currentPrice.price,
       0
     );
   }, [cartItems]);
 
   // Handle Checkout
 
-  const handleCheckout = () => {
-    checkoutCartItems();
+  const checkoutCartItems = () => {
+    dispatch(checkout());
   };
 
   return (
@@ -46,7 +47,7 @@ const Cart = () => {
       <S.CartButton
         type="inverted"
         disabled={cartItems.length ? false : true}
-        onClick={handleCheckout}
+        onClick={checkoutCartItems}
       >
         Checkout
       </S.CartButton>

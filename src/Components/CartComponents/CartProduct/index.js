@@ -1,26 +1,20 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../../Context/CartContext";
+import React from "react";
 
 import * as S from "./style";
 import closeIcon from "../../../Assets/closeB.svg";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../../Redux/storeSlice";
 
 const CartProduct = ({ product }) => {
-  const { addItemsToCart, removeItemsToCart, deleteItemsToCart } =
-    useContext(CartContext);
+  const { price, name, image, quantity, id } = product;
 
-  const { price, name, image, cartQuantity } = product;
+  const dispatch = useDispatch();
 
-  const increaseItemQuantity = () => {
-    addItemsToCart(product);
-  };
+  const handleAdd = () => dispatch(addItemToCart(id));
 
-  const decreaseItemQuantity = () => {
-    removeItemsToCart(product);
-  };
+  const removeItemsToCart = () => {};
 
-  const deleteItemFromCart = () => {
-    deleteItemsToCart(product);
-  };
+  const deleteItemsToCart = () => {};
 
   return (
     <S.ProductCartWrapper>
@@ -28,7 +22,7 @@ const CartProduct = ({ product }) => {
       <S.DeleteButtonProductCart
         src={closeIcon}
         alt="close button"
-        onClick={deleteItemFromCart}
+        onClick={deleteItemsToCart}
       />
 
       <S.ContentContainerProductCart>
@@ -36,13 +30,13 @@ const CartProduct = ({ product }) => {
         <S.PriceProductCart>{price} ILS</S.PriceProductCart>
 
         <S.QuantityContainerProductCart>
-          <S.QuantityButtonProductCart onClick={decreaseItemQuantity}>
+          <S.QuantityButtonProductCart onClick={removeItemsToCart}>
             -
           </S.QuantityButtonProductCart>
 
-          <S.QuantityProductCart>{cartQuantity}</S.QuantityProductCart>
+          <S.QuantityProductCart>{quantity}</S.QuantityProductCart>
 
-          <S.QuantityButtonProductCart onClick={increaseItemQuantity}>
+          <S.QuantityButtonProductCart onClick={handleAdd}>
             +
           </S.QuantityButtonProductCart>
         </S.QuantityContainerProductCart>
