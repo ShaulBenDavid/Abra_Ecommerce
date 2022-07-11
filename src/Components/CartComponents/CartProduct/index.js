@@ -3,7 +3,7 @@ import React from "react";
 import * as S from "./style";
 import closeIcon from "../../../Assets/closeB.svg";
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "../../../Redux/storeSlice";
+import { addItemToCart, deleteCartItem, decreaseCartItem } from "../../../Redux/storeSlice";
 
 const CartProduct = ({ product }) => {
   const { price, name, image, quantity, id } = product;
@@ -12,9 +12,13 @@ const CartProduct = ({ product }) => {
 
   const handleAdd = () => dispatch(addItemToCart(id));
 
-  const removeItemsToCart = () => {};
+  const removeItemsToCart = () => {
+    dispatch(decreaseCartItem(id));
+  };
 
-  const deleteItemsToCart = () => {};
+  const deleteItemsToCart = () => {
+    dispatch(deleteCartItem(id));
+  };
 
   return (
     <S.ProductCartWrapper>
