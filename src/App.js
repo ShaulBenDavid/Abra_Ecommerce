@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import PagesData from "./Services/PagesData.json";
 
@@ -10,9 +10,12 @@ import { fetchStoreItems } from "./Redux/storeSlice";
 
 function App() {
   const dispacth = useDispatch();
+  const items = useSelector((state) => state.store.items);
 
   useEffect(() => {
-    dispacth(fetchStoreItems());
+    if (items.length === 0) {
+      dispacth(fetchStoreItems());
+    }
   }, []);
 
   return (
