@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import ProductList from "../../Components/Items/ProductList/ProductList";
 import * as S from "./style";
 
 const ContentPage = ({ pageName, pageCategorie }) => {
   const [filteredProducts, setSilteredProducts] = useState([]);
-
-  const { storeItems } = useContext(CartContext);
-
+  const storeItems = useSelector((state) => state.store.items);
+  
   useEffect(() => {
     const filtered = storeItems.filter((product) =>
       product.catagories.includes(pageCategorie)
