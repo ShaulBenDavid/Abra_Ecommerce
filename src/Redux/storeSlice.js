@@ -5,8 +5,8 @@ import { SERVER_URL, ITEM_END_POINT } from "../constants";
 const initialState = {
   cart: [],
   items: [],
+  isLoading: Boolean,
 };
-
 
 // Fetching
 export const fetchStoreItems = createAsyncThunk(
@@ -47,34 +47,30 @@ export const storeSlice = createSlice({
       const existingItem = state.cart.find(
         (cartItem) => cartItem.id === itemId
       );
-      const storeItem = state.items.find(
-        (item) => item.id === itemId
-      );
+      const storeItem = state.items.find((item) => item.id === itemId);
 
       existingItem.quantity--;
       storeItem.quantity++;
 
       if (existingItem.quantity === 0) {
-        const newCartItems = state.cart.filter((cartItem) => cartItem.id !== existingItem.id);
+        const newCartItems = state.cart.filter(
+          (cartItem) => cartItem.id !== existingItem.id
+        );
         state.cart = newCartItems;
       }
     },
     // Delete item from cart
     deleteCartItem: (state, action) => {
       const itemId = action.payload;
-      const cartItem = state.cart.find(
-        (item) => item.id === itemId 
-      );
-      const storeItem = state.items.find(
-        (item) => item.id === itemId 
-      );
-      
+      const cartItem = state.cart.find((item) => item.id === itemId);
+      const storeItem = state.items.find((item) => item.id === itemId);
+
       storeItem.quantity += cartItem.quantity;
 
       const newCartItems = state.cart.filter(
         (cartItem) => cartItem.id !== itemId
       );
-      
+
       state.cart = newCartItems;
     },
     // Checkout

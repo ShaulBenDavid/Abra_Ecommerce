@@ -1,7 +1,7 @@
 import React from "react";
 
-import ContentPage from "../ContentPage/ContentPage";
-import Cart from "../Cart/Cart";
+import ContentPage from "../ContentPage";
+import Cart from "../Cart";
 import * as S from "./style";
 
 const PageWrapper = ({ pageName, pageCategorie }) => {
